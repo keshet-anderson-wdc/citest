@@ -20,6 +20,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
     parser.add_argument("--build", dest="build", help="Test build", action='store_true', default=False)
     parser.add_argument("--run-test", dest="run_test", help="Run test", action='store_true', default=False)
+    parser.add_argument("--var1", dest="var1", help="First var", type=str, default='')
     args = parser.parse_args(sys.argv[1:])
 
     if args.build and args.run_test:
@@ -30,6 +31,12 @@ if __name__ == "__main__":
         print('Run test selected')
     else:
         exit_error('Missing action to perform')
+
+    print('Environment:')
+    print('-------------------------------------------------------------')
+    print('var1: {}'.format(args.var1))
+    print('-------------------------------------------------------------')
+
 
     print('Environment:')
     print('-------------------------------------------------------------')

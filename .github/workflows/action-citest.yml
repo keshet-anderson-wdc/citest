@@ -26,7 +26,7 @@ jobs:
         python-version: "3.10"
     - name: Test build
       run: |
-        python citest.py --build
+        python citest.py --build --var1 "${{ github.event.client_payload.var1 }}"
     - name: Test run
       run: |
-        python citest.py --run-test
+        python citest.py --run-test --var1 "${{ github.event.client_payload.var1 }}"
