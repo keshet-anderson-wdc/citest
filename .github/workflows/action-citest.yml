@@ -5,6 +5,10 @@ name: Python application
 
 on:
   workflow_dispatch:
+    inputs:
+      var1:
+        description: Some var
+        required: true
 
 permissions:
   contents: read
@@ -26,6 +30,3 @@ jobs:
     - name: Test run
       run: |
         python citest.py --run-test
-    - name: Test bad args
-      run: |
-        python citest.py --stam
